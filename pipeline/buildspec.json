@@ -19,7 +19,7 @@
         "commands": [
           "npm i -g recursive-install",
           "npm-recursive-install --rootDir=src",
-          "cd src/books/create",
+          "cd src/create",
           "npm test",
           "cd ../get-all",
           "npm test"
