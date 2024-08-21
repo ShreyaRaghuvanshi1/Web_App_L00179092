@@ -1,0 +1,15 @@
+config:
+  target: 'https://qz6cpfp4d5qpuewayidlmchgfi0rwifk.lambda-url.us-east-1.on.aws/'
+  phases:
+    - duration: 600
+      arrivalRate: 1
+      name: spike test
+    - duration: 60
+      arrivalRate: 50
+      name: high load spike
+scenarios:
+  - flow:
+      - post:
+          url: "/api/books"
+          json:
+            key: value
