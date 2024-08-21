@@ -1,0 +1,12 @@
+config:
+  target: 'https://qz6cpfp4d5qpuewayidlmchgfi0rwifk.lambda-url.us-east-1.on.aws/' 
+  phases:
+    - duration: 600
+      arrivalRate: 1
+      name: baseline testing
+scenarios:
+  - flow:
+      - get:
+          url: "/api/books"
+          json:
+            key: value

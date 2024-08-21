@@ -1,0 +1,42 @@
+config:
+  target: "https://bl86gzziek.execute-api.us-east-1.amazonaws.com/staging" # Replace with your API Gateway or Lambda endpoint
+  phases:
+    - duration: 300 # Total duration of the test in seconds
+      arrivalRate: 10 # Start with 10 requests per second
+      rampTo: 50 # Gradually increase to 50 requests per second
+  http:
+    pool: 50 # Max number of concurrent requests
+    timeout: 10 # Timeout for each request in seconds
+  variables:
+    faultyPayloads:
+      - '{ "key": "value" }' # Normal payload
+      - '{ "key": null }' # Payload with null values
+      - '{ "key": "very_large_value" * 10000 }' # Oversized payload
+      - '{ "unexpected_key": "unexpected_value" }' # Payload with unexpected structure
+    errorStatusCodes:
+      - 400
+      - 401
+      - 403
+      - 404
+  processor: "tests/processor.js" # Custom logic for response validation or modification
+
+scenarios:
+  - flow:
+      - post:
+          url: "/api/books" # API endpoint path
+          json:
+            key: "{{ $randomElement('faultyPayloads') }}" # Randomly select a faulty payload
+          headers:
+            Content-Type: "application/json"
+          expect:
+            - statusCode: "{{ $randomElement('errorStatusCodes') }}" # Randomly simulate error responses
+  
+
+  - flow:
+      - get:
+          url: "/health-check" # Health check endpoint
+          expect:
+            - statusCode: 200
+         
+
+
