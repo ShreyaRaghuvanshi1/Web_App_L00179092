@@ -1,4 +1,3 @@
-Based on your thesis titled "Analysing Performance Degradation of Serverless Application in DevOps Pipeline," here’s a draft for a GitHub README file:
 
 ---
 
