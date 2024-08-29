@@ -14,8 +14,6 @@ This repository contains the code, configurations, and scripts associated with t
 - [Research Objective](#research-objective)
 - [Technologies and Tools Used](#technologies-and-tools-used)
 - [Architecture](#architecture)
-- [Installation](#installation)
-- [Usage](#usage)
 - [Results](#results)
 - [Conclusion](#conclusion)
 
@@ -48,46 +46,8 @@ The project is structured as follows:
 2. **Serverless Application**: Deployed on AWS Lambda, using services such as API Gateway, DynamoDB, and Cognito for various functionalities.
 3. **Monitoring and Testing**: Leveraging AWS CloudWatch and X-Ray for monitoring, with performance tests conducted using Artillery.io.
 
-![System Architecture](path_to_architecture_image)
 
-## Installation
 
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/yourusername/serverless-devops-performance.git
-   cd serverless-devops-performance
-   ```
-
-2. **Install Dependencies**:
-   Ensure you have Node.js and AWS CLI installed.
-   ```bash
-   npm install
-   ```
-
-3. **Set Up AWS Credentials**:
-   Configure your AWS CLI with the necessary credentials.
-
-4. **Deploy the Application**:
-   Use SAM CLI to build and deploy the application.
-   ```bash
-   sam build
-   sam deploy --guided
-   ```
-
-## Usage
-
-1. **Run CI/CD Pipeline**:
-   Set up Jenkins to automate the deployment process.
-   Refer to `Jenkinsfile` in the repository for the pipeline configuration.
-
-2. **Perform Load Testing**:
-   Use Artillery.io to simulate load on the deployed application.
-   ```bash
-   artillery run load_test.yml
-   ```
-
-3. **Monitor Application**:
-   Monitor the application's performance via AWS CloudWatch and X-Ray dashboards.
 
 ## Results
 
